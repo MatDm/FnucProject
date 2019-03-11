@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="FnucDbContext.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.Designer.cs">

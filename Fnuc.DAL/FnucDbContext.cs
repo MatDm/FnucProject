@@ -15,5 +15,11 @@ namespace Fnuc.DAL
 
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasOptional(e => e.ParentCategory).WithMany().HasForeignKey(m => m.ParentCategoryId);
+        }
+
     }
 }

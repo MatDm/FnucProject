@@ -14,6 +14,7 @@ namespace Fnuc.DAL.Entities
         public decimal Price { get; set; }
         public DateTime PublicationDate { get; set; }
         public int StockQuantity { get; set; }
+
         public int CategoryId { get; set; }
 
     }
