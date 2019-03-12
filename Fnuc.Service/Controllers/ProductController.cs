@@ -1,6 +1,5 @@
 ﻿using Fnuc.BLL.get;
 using Fnuc.BLL.JsonModels;
-using Fnuc.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,25 +13,28 @@ namespace Fnuc.Service.Controllers
 {
     public class ProductController : ApiController
     {
-        //private FnucDbContext db = new FnucDbContext();
+        ProductLogic productLogic = new ProductLogic();
+        
         // GET: api/Product ---- retrieve tous les produits
-        [ResponseType(typeof(List<Product>))]
-        public List<Product> GetProducts()
-        {
-            ProductLogic productLogic = new ProductLogic();
+        [ResponseType(typeof(List<ProductJson>))]
+        public List<ProductJson> Get()
+        {           
             var products = productLogic.GetAllProducts();
             return products;
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public ProductJson Get(int id)
         {
-            return "value";
+            var product = productLogic.GetProduct(id);
+            return product;
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public void Post(ProductJson productJson)
         {
+
+            productLogic.PostProduct(productJson);
         }
 
         // PUT: api/Product/5

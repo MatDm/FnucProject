@@ -54,6 +54,7 @@
     <Compile Include="JsonModels\ShoppingCart.cs" />
     <Compile Include="JsonModels\ShoppingProductJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Convertor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fnuc.Common\Fnuc.Common.csproj">
