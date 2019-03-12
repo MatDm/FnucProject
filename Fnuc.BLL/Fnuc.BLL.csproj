@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="get\ProductLogic.cs" />
     <Compile Include="JsonModels\CategoryJson.cs" />
     <Compile Include="JsonModels\ProductJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

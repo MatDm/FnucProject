@@ -11,8 +11,8 @@ namespace Fnuc.DAL.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        //foreign key = Id de category
 
+        //foreign key = Id de category
         [ForeignKey("ParentCategory")]
         public int? ParentCategoryId { get; set; }
         public virtual Category ParentCategory { get; set; }

@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -274,6 +275,10 @@
     <ProjectReference Include="..\Fnuc.Common\Fnuc.Common.csproj">
       <Project>{529ff40b-1a7f-4025-aa69-082e00dc3d2c}</Project>
       <Name>Fnuc.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fnuc.DAL\Fnuc.DAL.csproj">
+      <Project>{61453FD5-C1F6-4BD1-B66B-941F3A9F4DB2}</Project>
+      <Name>Fnuc.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
