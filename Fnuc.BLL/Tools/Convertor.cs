@@ -29,6 +29,24 @@ namespace Fnuc.BLL.Tools
 
         }
 
+        public CategoryJson ConvertCategoryToCategoryJson(Category category)
+        {
+            var categoryJson = new CategoryJson()
+            {
+                id = category.Id,
+                name = category.Name,
+                subCategories = GetSubCategories(category)
+            };
+
+            return categoryJson;
+        }
+
+        private List<Category> GetSubCategories(Category category)
+        {
+            var subCategories = db.Categories.Where(c => c.ParentCategoryId == category.Id).ToList();
+            return subCategories;          
+        }
+
         public Product ConvertProductJsonToProduct(ProductJson productJson)
         {
             

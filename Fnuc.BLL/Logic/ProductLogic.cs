@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fnuc.BLL.get
+namespace Fnuc.BLL.Logic
 {
     public class ProductLogic
     {
@@ -39,6 +39,14 @@ namespace Fnuc.BLL.get
             Repository<Product> productRepository = new Repository<Product>(db);
             var product = convertor.ConvertProductJsonToProduct(productJson);
             productRepository.Insert(product);
+            db.SaveChanges();
+        }
+
+        public void DeleteProd(int id)
+        {
+            Repository<Product> productRepository = new Repository<Product>(db);
+            var product = productRepository.GetById(id);
+            productRepository.Delete(product);
             db.SaveChanges();
         }
 

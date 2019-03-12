@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fnuc.BLL.JsonModels
 {
-    class CategoryJson
+    public class CategoryJson
     {
         public int id { get; set; }
         public string name { get; set; }

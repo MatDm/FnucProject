@@ -48,10 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="get\ProductLogic.cs" />
+    <Compile Include="Logic\CategoryLogic.cs" />
+    <Compile Include="Logic\ProductLogic.cs" />
     <Compile Include="JsonModels\CategoryJson.cs" />
     <Compile Include="JsonModels\ProductJson.cs" />
-    <Compile Include="JsonModels\ShoppingCart.cs" />
+    <Compile Include="JsonModels\ShoppingCartJson.cs" />
     <Compile Include="JsonModels\ShoppingProductJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Convertor.cs" />

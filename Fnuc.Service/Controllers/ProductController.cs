@@ -1,4 +1,4 @@
-﻿using Fnuc.BLL.get;
+﻿using Fnuc.BLL.Logic;
 using Fnuc.BLL.JsonModels;
 using System;
 using System.Collections.Generic;
@@ -45,6 +45,7 @@ namespace Fnuc.Service.Controllers
         // DELETE: api/Product/5
         public void Delete(int id)
         {
+            productLogic.DeleteProd(id);
         }
     }
 }

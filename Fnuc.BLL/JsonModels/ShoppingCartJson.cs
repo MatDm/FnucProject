@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fnuc.BLL.JsonModels
 {
-    public class ShoppingCart
+    public class ShoppingCartJson
     {
         public int Id { get; set; }
         public int UserId { get; set; }
