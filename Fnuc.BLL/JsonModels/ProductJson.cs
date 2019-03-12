@@ -13,7 +13,7 @@ namespace Fnuc.BLL.JsonModels
         public string description { get; set; }
         public int categoryId { get; set; }
         public string category { get; set; }
-        public int price { get; set; }
+        public decimal price { get; set; }
         public DateTime publicationDate { get; set; }
     }
 }
