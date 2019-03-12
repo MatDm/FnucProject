@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="JsonModels\CategoryJson.cs" />
     <Compile Include="JsonModels\ProductJson.cs" />
+    <Compile Include="JsonModels\ShoppingCart.cs" />
+    <Compile Include="JsonModels\ShoppingProductJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
