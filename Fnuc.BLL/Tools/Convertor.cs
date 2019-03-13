@@ -29,6 +29,19 @@ namespace Fnuc.BLL.Tools
 
         }
 
+
+        public CategoryJson ConvertASingleCategoryToASingleCategoryJson(Category category)
+        {
+            var categoryJson = new CategoryJson()
+            {
+                id = category.Id,
+                name = category.Name,
+                subCategories = new List<Category>()
+            };
+
+            return categoryJson;
+        }
+
         public List<CategoryJson> ConvertCategoryToCategoryJson(List<Category> categories)
         {
             var categoryJsonList = new List<CategoryJson>();
@@ -45,6 +58,23 @@ namespace Fnuc.BLL.Tools
             
 
             return categoryJsonList;
+        }
+
+        public Category CategoryJsonToCategory(CategoryJson categoryJson)
+        {
+            return new Category()
+            {
+                Id = categoryJson.id,
+                Name = categoryJson.name,
+                ParentCategoryId = categoryJson.parentCategoryId
+            };
+        }
+
+        private int? FindParentCategory(int id)
+        {
+            var Category = db.Categories.Where(c => c.Id == id).FirstOrDefault();
+            var ParentCategoryId = Category.ParentCategoryId;
+            return ParentCategoryId;
         }
 
         private List<Category> GetSubCategories(Category category)

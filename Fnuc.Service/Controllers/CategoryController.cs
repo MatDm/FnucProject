@@ -20,24 +20,28 @@ namespace Fnuc.Service.Controllers
         }
 
         // GET: api/Category/5
-        public string Get(int id)
+        public CategoryJson Get(int id)
         {
-            return "value";
+            var categoryJson = categoryLogic.Get(id);
+            return categoryJson;
         }
 
         // POST: api/Category
-        public void Post([FromBody]string value)
+        public void Post(CategoryJson categoryJson)
         {
+            categoryLogic.Post(categoryJson);
         }
 
         // PUT: api/Category/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(CategoryJson categoryJson)
         {
+            categoryLogic.Update(categoryJson);
         }
 
         // DELETE: api/Category/5
         public void Delete(int id)
         {
+            categoryLogic.Delete(id);
         }
     }
 }

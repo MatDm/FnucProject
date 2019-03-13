@@ -33,5 +33,43 @@ namespace Fnuc.BLL.Logic
             return result;
 
         }
+
+        public void Delete(int id)
+        {
+            Repository<Category> categoryRepository = new Repository<Category>(db);
+            var category = db.Categories.Where(c => c.Id == id).FirstOrDefault();
+            categoryRepository.Delete(category);
+            db.SaveChanges();
+
+        }
+
+        public void Update(CategoryJson categoryJson)
+        {
+            var categoryToUpdate = db.Categories.Where(c => c.Id == categoryJson.id).SingleOrDefault();
+            AssignValue(categoryJson, categoryToUpdate);
+            db.SaveChanges();
+        }
+
+        private void AssignValue(CategoryJson categoryJson, Category categoryToUpdate)
+        {
+            categoryToUpdate.Name = categoryJson.name;
+            categoryToUpdate.ParentCategoryId = categoryJson.parentCategoryId;          
+        }
+
+        public void Post(CategoryJson categoryJson)
+        {
+            Repository<Category> categoryRepository = new Repository<Category>(db);
+            var category = convertor.CategoryJsonToCategory(categoryJson);
+            categoryRepository.Insert(category);
+            db.SaveChanges();
+        }
+
+        public CategoryJson Get(int id)
+        {
+            Repository<Category> categoryRepository = new Repository<Category>(db);
+            var category = db.Categories.Where(c => c.Id == id).FirstOrDefault();
+            var categoryJson = convertor.ConvertASingleCategoryToASingleCategoryJson(category);
+            return categoryJson;
+        }
     }
 }

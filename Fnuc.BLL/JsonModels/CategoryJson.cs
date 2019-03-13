@@ -11,6 +11,7 @@ namespace Fnuc.BLL.JsonModels
     {
         public int id { get; set; }
         public string name { get; set; }
+        public int parentCategoryId { get; set; }
         public List<Category> subCategories { get; set; }
     }
 }
