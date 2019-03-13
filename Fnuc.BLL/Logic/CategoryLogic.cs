@@ -18,16 +18,20 @@ namespace Fnuc.BLL.Logic
         public List<CategoryJson> GetAllCategories()
         {
             Repository<Category> categoryRepository = new Repository<Category>(db);
-            var categoryList = categoryRepository.GetAll().Where(c => c.ParentCategoryId == null).ToList();
-            var categoryJsonList = new List<CategoryJson>();
+            //var categoryList = categoryRepository.GetAll().ToList();
+            //var categoryJsonList = new List<CategoryJson>();
 
-            foreach (var category in categoryList)
-            {
-                var categoryJson = convertor.ConvertCategoryToCategoryJson(category);
-                categoryJsonList.Add(categoryJson);
-            }
+            //foreach (var category in categoryList)
+            //{
+            //    var categoryJson = convertor.ConvertCategoryToCategoryJson(category);
+            //    categoryJsonList.Add(categoryJson);
+            //}
 
-            return categoryJsonList;
+            //return categoryJsonList;
+            var rootCategory = db.Categories.Where(c => c.ParentCategoryId == null).ToList();
+            var result = convertor.ConvertCategoryToCategoryJson(rootCategory);
+            return result;
+
         }
     }
 }
