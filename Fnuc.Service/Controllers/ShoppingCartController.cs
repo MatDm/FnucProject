@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Fnuc.Service.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ShoppingCartController : ApiController
     {
         ShoppingCartLogic shoppingCartLogic = new ShoppingCartLogic();
@@ -32,8 +34,9 @@ namespace Fnuc.Service.Controllers
         }
 
         // POST: api/ShoppingCart
-        public void Post([FromBody]string value)
+        public void Post(ShoppingCartJson shoppingCartJson)
         {
+            
         }
 
         // PUT: api/ShoppingCart/5

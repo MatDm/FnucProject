@@ -8,14 +8,17 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Cors;
 
 namespace Fnuc.Service.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductController : ApiController
     {
         ProductLogic productLogic = new ProductLogic();
         
         // GET: api/Product ---- retrieve tous les produits
+        [Route("api/product/all")]
         [ResponseType(typeof(List<ProductJson>))]
         public List<ProductJson> Get()
         {           

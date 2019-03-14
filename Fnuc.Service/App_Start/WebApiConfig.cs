@@ -23,10 +23,13 @@ namespace Fnuc.Service
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.EnableCors();
+            
 
 
-            // Oblige l'api à renvoyer du json en camelcase;
-            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
+
+        // Oblige l'api à renvoyer du json en camelcase;
+        var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             //config.Formatters.Add(jsonFormatter);
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));

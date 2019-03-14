@@ -6,13 +6,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Fnuc.Service.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CategoryController : ApiController
     {
         CategoryLogic categoryLogic = new CategoryLogic();
         // GET: api/Category
+        [Route("api/category/all")]
         public List<CategoryJson> Get()
         {
             var categories = categoryLogic.GetAllCategories();
