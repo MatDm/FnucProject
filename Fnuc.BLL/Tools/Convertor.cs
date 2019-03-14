@@ -60,6 +60,36 @@ namespace Fnuc.BLL.Tools
             return categoryJsonList;
         }
 
+        public ShoppingCart ConvertToShoppingCart(ShoppingCartJson shoppingCartJson)
+        {
+
+            var shoppingCart = new ShoppingCart()
+            {
+                Id = shoppingCartJson.id,
+                UserId = shoppingCartJson.userId,
+                ShoppingProducts = ConvertShoppingProductJsonListToShoppingProductList(shoppingCartJson.shoppingProducts, shoppingCartJson.id)
+            };
+
+            return shoppingCart;
+        }
+
+        private List<ShoppingProduct> ConvertShoppingProductJsonListToShoppingProductList(List<ShoppingProductJson> shoppingProductJsonList, int shoppingCartJsonId)
+        {
+            var shoppingProductList = new List<ShoppingProduct>();
+            foreach (var shoppingProductJson in shoppingProductJsonList)
+            {
+                var shoppingProduct = new ShoppingProduct()
+                {
+                    Id = shoppingProductJson.id,
+                    Name = shoppingProductJson.name,
+                    ProductId = shoppingProductJson.productId,
+                    PricePerUnit = shoppingProductJson.pricePerUnit,
+                    ShoppingCartId = shoppingCartJsonId
+                };
+            }
+            return shoppingProductList;
+        }
+
         public Category CategoryJsonToCategory(CategoryJson categoryJson)
         {
             return new Category()
@@ -104,7 +134,7 @@ namespace Fnuc.BLL.Tools
                 Description = productJson.description,
                 CategoryId = productJson.categoryId,
                 Price = productJson.price,
-                PublicationDate = productJson.publicationDate,
+                PublicationDate = DateTime.Now,
                 StockQuantity = 1
             };
             return product;
@@ -115,9 +145,9 @@ namespace Fnuc.BLL.Tools
         {
             var shoppingCartJson = new ShoppingCartJson()
             {
-                id = shoppingCart.id,
-                userId = shoppingCart.userId,
-                shoppingProducts = ConvertToShoppingProductJson(shoppingCart.shoppingProducts)
+                id = shoppingCart.Id,
+                userId = shoppingCart.UserId,
+                shoppingProducts = ConvertToShoppingProductJson(shoppingCart.ShoppingProducts)
             };
             return shoppingCartJson;
         }

@@ -42,6 +42,34 @@ namespace Fnuc.BLL.Logic
             db.SaveChanges();
         }
 
+        public List<ProductJson> GetProductListById(int id)
+        {
+            Repository<Product> productRepository = new Repository<Product>(db);
+            var category = db.Categories.Where(c => c.Id == id).FirstOrDefault();
+            var productList = db.Products.Where(p => p.CategoryId == category.Id).ToList();
+            var productListJson = new List<ProductJson>();
+            foreach (var product in productList)
+            {
+                var productJson = convertor.ConvertProductToProductJson(product);
+                productListJson.Add(productJson);
+            }
+            return productListJson;
+        }
+
+        public List<ProductJson> GetProductListByCategoryName(string categoryName)
+        {
+            Repository<Product> productRepository = new Repository<Product>(db);
+            var category = db.Categories.Where(c => c.Name == categoryName).FirstOrDefault();
+            var productList = db.Products.Where(p => p.CategoryId == category.Id).ToList();
+            var productListJson = new List<ProductJson>();
+            foreach (var product in productList)
+            {
+                var productJson = convertor.ConvertProductToProductJson(product);
+                productListJson.Add(productJson);
+            }
+            return productListJson;
+        }
+
         public void DeleteProd(int id)
         {
             Repository<Product> productRepository = new Repository<Product>(db);

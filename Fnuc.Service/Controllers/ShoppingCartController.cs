@@ -36,7 +36,7 @@ namespace Fnuc.Service.Controllers
         // POST: api/ShoppingCart
         public void Post(ShoppingCartJson shoppingCartJson)
         {
-            
+            shoppingCartLogic.PostShoppingCart(shoppingCartJson);
         }
 
         // PUT: api/ShoppingCart/5

@@ -27,25 +27,33 @@ namespace Fnuc.BLL.Logic
             foreach (var shoppingCart in shoppingCartList)
             {
                 //récuperer les shoppingProducts
-                shoppingCart.shoppingProducts = GetShoppingProductList(shoppingCart);
+                shoppingCart.ShoppingProducts = GetShoppingProductList(shoppingCart);
                 // convertir en shoppingCatjson et ajoutez à la liste
                 shoppingCartJsonList.Add(convertor.ConvertToShoppingCartJson(shoppingCart));
             }
             return shoppingCartJsonList;
         }
 
+        public void PostShoppingCart(ShoppingCartJson shoppingCartJson)
+        {
+            Repository<ShoppingCart> shoppingCartRepository = new Repository<ShoppingCart>(db);
+            var shoppingCart = convertor.ConvertToShoppingCart(shoppingCartJson);
+            shoppingCartRepository.Insert(shoppingCart);
+            db.SaveChanges();
+        }
+
         public ShoppingCartJson Get(int id)
         {
             Repository<ShoppingCart> shoppingCartRepository = new Repository<ShoppingCart>(db);
             var shoppingCart = shoppingCartRepository.GetById(id);
-            shoppingCart.shoppingProducts = GetShoppingProductList(shoppingCart);
+            shoppingCart.ShoppingProducts = GetShoppingProductList(shoppingCart);
             return convertor.ConvertToShoppingCartJson(shoppingCart);
         }
 
         public List<ShoppingProduct> GetShoppingProductList(ShoppingCart shoppingCart)
         {
             var shoppingProductList = new List<ShoppingProduct>();
-            shoppingProductList = db.ShoppingProducts.Where(s => s.ShoppingCartId == shoppingCart.id).ToList();
+            shoppingProductList = db.ShoppingProducts.Where(s => s.ShoppingCartId == shoppingCart.Id).ToList();
             return shoppingProductList;
         }
 

@@ -22,6 +22,14 @@ namespace Fnuc.Service.Controllers
             return categories;
         }
 
+        [Route("api/category")]
+        public List<CategoryJson> GetFlat()
+        {
+            var categories = categoryLogic.GetAllCategories();
+            return categories;
+        }
+
+
         // GET: api/Category/5
         public CategoryJson Get(int id)
         {

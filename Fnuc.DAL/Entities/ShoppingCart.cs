@@ -8,8 +8,8 @@ namespace Fnuc.DAL.Entities
 {
     public class ShoppingCart
     {
-        public int id { get; set; }
-        public int userId { get; set; }
-        public List<ShoppingProduct> shoppingProducts { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public List<ShoppingProduct> ShoppingProducts { get; set; }
     }
 }

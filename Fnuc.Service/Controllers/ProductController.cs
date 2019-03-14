@@ -26,12 +26,29 @@ namespace Fnuc.Service.Controllers
             return products;
         }
 
+        [Route("api/product")]
+        [ResponseType(typeof(List<ProductJson>))]
+        public List<ProductJson> GetFlat()
+        {
+            var products = productLogic.GetAllProducts();
+            return products;
+        }
+
         // GET: api/Product/5
         public ProductJson Get(int id)
         {
             var product = productLogic.GetProduct(id);
             return product;
         }
+
+        //GET : api/category/
+        [Route("api/product/category/{id}")]
+        public List<ProductJson> GetProductByCategory(int id)
+        {
+            var productList = productLogic.GetProductListById(id);
+            return productList;
+        }
+
 
         // POST: api/Product
         public void Post(ProductJson productJson)
