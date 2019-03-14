@@ -110,5 +110,40 @@ namespace Fnuc.BLL.Tools
             return product;
 
         }
+
+        public ShoppingCartJson ConvertToShoppingCartJson(ShoppingCart shoppingCart)
+        {
+            var shoppingCartJson = new ShoppingCartJson()
+            {
+                id = shoppingCart.id,
+                userId = shoppingCart.userId,
+                shoppingProducts = ConvertToShoppingProductJson(shoppingCart.shoppingProducts)
+            };
+            return shoppingCartJson;
+        }
+
+        public ShoppingProductJson ConvertToJson(ShoppingProduct shoppingProduct)
+        {
+            var shoppingProductJson = new ShoppingProductJson()
+            {
+                id = shoppingProduct.Id,
+                name = shoppingProduct.Name,
+                pricePerUnit = shoppingProduct.PricePerUnit,
+                productId = shoppingProduct.ProductId,
+                quantity = shoppingProduct.Quantity
+            };
+
+            return shoppingProductJson;
+        }
+
+        public List<ShoppingProductJson> ConvertToShoppingProductJson(List<ShoppingProduct> shoppingProducts)
+        {
+            var shoppingProductJsonList = new List<ShoppingProductJson>();
+            foreach (var shoppingProduct in shoppingProducts)
+            {
+                shoppingProductJsonList.Add(ConvertToJson(shoppingProduct));
+            }
+            return shoppingProductJsonList;
+        }
     }
 }

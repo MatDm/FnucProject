@@ -40,6 +40,7 @@ namespace Fnuc.Service.Controllers
         // PUT: api/Product/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/Product/5

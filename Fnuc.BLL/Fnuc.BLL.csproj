@@ -54,6 +54,7 @@
     <Compile Include="JsonModels\ProductJson.cs" />
     <Compile Include="JsonModels\ShoppingCartJson.cs" />
     <Compile Include="JsonModels\ShoppingProductJson.cs" />
+    <Compile Include="Logic\ShoppingCartLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Convertor.cs" />
   </ItemGroup>

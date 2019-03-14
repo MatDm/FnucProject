@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\ShoppingCart.cs" />
+    <Compile Include="Entities\ShoppingProduct.cs" />
     <Compile Include="FnucDbContext.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.Designer.cs">
@@ -70,6 +72,18 @@
     <Compile Include="Migrations\201903131050470_backtobasic.cs" />
     <Compile Include="Migrations\201903131050470_backtobasic.Designer.cs">
       <DependentUpon>201903131050470_backtobasic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903140916522_CartsAndProducts.cs" />
+    <Compile Include="Migrations\201903140916522_CartsAndProducts.Designer.cs">
+      <DependentUpon>201903140916522_CartsAndProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903141002340_IsAzureAlive.cs" />
+    <Compile Include="Migrations\201903141002340_IsAzureAlive.Designer.cs">
+      <DependentUpon>201903141002340_IsAzureAlive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903141030261_AzureIsAboutToExplode.cs" />
+    <Compile Include="Migrations\201903141030261_AzureIsAboutToExplode.Designer.cs">
+      <DependentUpon>201903141030261_AzureIsAboutToExplode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +115,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903131050470_backtobasic.resx">
       <DependentUpon>201903131050470_backtobasic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903140916522_CartsAndProducts.resx">
+      <DependentUpon>201903140916522_CartsAndProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903141002340_IsAzureAlive.resx">
+      <DependentUpon>201903141002340_IsAzureAlive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903141030261_AzureIsAboutToExplode.resx">
+      <DependentUpon>201903141030261_AzureIsAboutToExplode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

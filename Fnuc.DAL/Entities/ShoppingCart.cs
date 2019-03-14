@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fnuc.BLL.JsonModels
+namespace Fnuc.DAL.Entities
 {
-    public class ShoppingCartJson
+    public class ShoppingCart
     {
         public int id { get; set; }
         public int userId { get; set; }
-        public List<ShoppingProductJson> shoppingProducts { get; set; }
+        public List<ShoppingProduct> shoppingProducts { get; set; }
     }
 }

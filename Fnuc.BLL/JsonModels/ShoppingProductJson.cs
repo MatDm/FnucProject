@@ -13,6 +13,5 @@ namespace Fnuc.BLL.JsonModels
         public int productId { get; set; }
         public int quantity { get; set; }
         public decimal pricePerUnit { get; set; }
-
     }
 }
