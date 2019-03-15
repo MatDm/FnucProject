@@ -73,7 +73,7 @@ namespace Fnuc.BLL.Tools
             return shoppingCart;
         }
 
-        public List<ShoppingProduct> ConvertShoppingProductJsonListToShoppingProductList(List<ShoppingProductJson> shoppingProductJsonList, int shoppingCartJsonId)
+        public List<ShoppingProduct> ConvertShoppingProductJsonListToShoppingProductList(List<ShoppingProductJson> shoppingProductJsonList, int shoppingCartId)
         {
             var shoppingProductList = new List<ShoppingProduct>();
             foreach (var shoppingProductJson in shoppingProductJsonList)
@@ -84,8 +84,9 @@ namespace Fnuc.BLL.Tools
                     Name = shoppingProductJson.name,
                     ProductId = shoppingProductJson.productId,
                     PricePerUnit = shoppingProductJson.pricePerUnit,
-                    ShoppingCartId = shoppingCartJsonId
+                    ShoppingCartId = shoppingCartId
                 };
+                shoppingProductList.Add(shoppingProduct);
             }
             return shoppingProductList;
         }

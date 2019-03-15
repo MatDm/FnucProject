@@ -25,6 +25,11 @@ namespace Fnuc.DAL.Repositories
             
             
         }
+        public T Insert2 (T entity)
+        {
+            DbSet.Add(entity);
+            return entity;
+        }
 
         public void Delete(T entity)
         {

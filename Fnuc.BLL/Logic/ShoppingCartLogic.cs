@@ -40,10 +40,10 @@ namespace Fnuc.BLL.Logic
             // préconversion pour récupérer l'ID
             var shoppingCart = convertor.ConvertToShoppingCart(shoppingCartJson);
             // insertion vers la db
-            shoppingCartRepository.Insert(shoppingCart);
+            var entity = shoppingCartRepository.Insert2(shoppingCart);
             db.SaveChanges();
             //récupération de l'id
-            var entity = shoppingCartRepository.SearchFor(s => s.UserId == shoppingCartJson.userId).SingleOrDefault();
+            //var entity = db.ShoppingCarts.Where(s => s == shoppingCart).FirstOrDefault();
             var entityID = entity.Id;
             //peupler les shoppings products
             entity.ShoppingProducts = convertor.ConvertShoppingProductJsonListToShoppingProductList(shoppingCartJson.shoppingProducts, entityID);

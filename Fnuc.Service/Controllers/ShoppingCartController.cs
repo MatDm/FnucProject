@@ -34,6 +34,7 @@ namespace Fnuc.Service.Controllers
         }
 
         // POST: api/ShoppingCart
+        [Route("api/shopping")]
         public void Post(ShoppingCartJson shoppingCartJson)
         {
             shoppingCartLogic.PostShoppingCart(shoppingCartJson);
