@@ -37,9 +37,18 @@ namespace Fnuc.BLL.Logic
         public void PostShoppingCart(ShoppingCartJson shoppingCartJson)
         {
             Repository<ShoppingCart> shoppingCartRepository = new Repository<ShoppingCart>(db);
+            // préconversion pour récupérer l'ID
             var shoppingCart = convertor.ConvertToShoppingCart(shoppingCartJson);
+            // insertion vers la db
             shoppingCartRepository.Insert(shoppingCart);
             db.SaveChanges();
+            //récupération de l'id
+            var entity = shoppingCartRepository.SearchFor(s => s.UserId == shoppingCartJson.userId).SingleOrDefault();
+            var entityID = entity.Id;
+            //peupler les shoppings products
+            entity.ShoppingProducts = convertor.ConvertShoppingProductJsonListToShoppingProductList(shoppingCartJson.shoppingProducts, entityID);
+            db.SaveChanges();
+
         }
 
         public ShoppingCartJson Get(int id)

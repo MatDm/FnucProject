@@ -67,13 +67,13 @@ namespace Fnuc.BLL.Tools
             {
                 Id = shoppingCartJson.id,
                 UserId = shoppingCartJson.userId,
-                ShoppingProducts = ConvertShoppingProductJsonListToShoppingProductList(shoppingCartJson.shoppingProducts, shoppingCartJson.id)
+                ShoppingProducts = new List<ShoppingProduct>()
             };
 
             return shoppingCart;
         }
 
-        private List<ShoppingProduct> ConvertShoppingProductJsonListToShoppingProductList(List<ShoppingProductJson> shoppingProductJsonList, int shoppingCartJsonId)
+        public List<ShoppingProduct> ConvertShoppingProductJsonListToShoppingProductList(List<ShoppingProductJson> shoppingProductJsonList, int shoppingCartJsonId)
         {
             var shoppingProductList = new List<ShoppingProduct>();
             foreach (var shoppingProductJson in shoppingProductJsonList)
