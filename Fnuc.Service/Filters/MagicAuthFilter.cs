@@ -222,17 +222,18 @@ namespace Fnuc.Service.Filters
             var userRepository = new Repository<User>(dbContext);
             var user = dbContext.Users.Where(u => u.Name == userName).FirstOrDefault();
 
+            //ici on rajoute la logique pour décoder le mot de pass stocké dans le db(quand il sera crypté)
+            Decoder decoder = new Decoder();
+            var uncodedPassword = decoder.UncodePassword(user.Password);
 
-           
 
-
-            if (user == null || password != user.Password)
+            if (user == null || password != uncodedPassword)
             {
                 // No user with userName/password exists.
                 return null;
             }
-            
-            if (user != null && user.Password == password)
+
+            if (user != null && uncodedPassword == password)
             {
                 // Create a ClaimsIdentity with all the claims for this user.
                 Claim nameClaim = new Claim(ClaimTypes.Name, userName);
@@ -246,7 +247,7 @@ namespace Fnuc.Service.Filters
                 return principal;
             }
             return null;
-          
+
         }
 
     }

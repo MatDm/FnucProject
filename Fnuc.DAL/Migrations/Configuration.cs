@@ -1,6 +1,7 @@
 namespace Fnuc.DAL.Migrations
 {
     using Fnuc.DAL.Entities;
+    using Fnuc.DAL.Repositories;
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
 
@@ -66,15 +67,27 @@ namespace Fnuc.DAL.Migrations
             //};
 
             //shoppingCartList.ForEach(s => context.ShoppingCarts.Add(s));
+            //string password = "password";
+            //var cryptedPassword = Base64Encode(password);
 
             //var users = new List<User>()
             //{
-            //    new User {Name = "jonh", Password = "password"},
-            //    new User {Name = "mat", Password = "james"}
+            //    new User {Name = "jonh", Password = cryptedPassword }
+
             //};
 
             //users.ForEach(u => context.Users.Add(u));
             //context.SaveChanges();
+
+         
+
+
         }
+
+        //public byte[] Base64Encode(string plainText)
+        //{
+        //    var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        //    return plainTextBytes;
+        //}
     }
 }

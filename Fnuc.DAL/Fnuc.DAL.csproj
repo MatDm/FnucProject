@@ -105,6 +105,14 @@
     <Compile Include="Migrations\201903251702224_User_Table.Designer.cs">
       <DependentUpon>201903251702224_User_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903251754364_DeleteUserTable.cs" />
+    <Compile Include="Migrations\201903251754364_DeleteUserTable.Designer.cs">
+      <DependentUpon>201903251754364_DeleteUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903251757335_ByteArrayInUserTable.cs" />
+    <Compile Include="Migrations\201903251757335_ByteArrayInUserTable.Designer.cs">
+      <DependentUpon>201903251757335_ByteArrayInUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -147,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903251702224_User_Table.resx">
       <DependentUpon>201903251702224_User_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903251754364_DeleteUserTable.resx">
+      <DependentUpon>201903251754364_DeleteUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903251757335_ByteArrayInUserTable.resx">
+      <DependentUpon>201903251757335_ByteArrayInUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
