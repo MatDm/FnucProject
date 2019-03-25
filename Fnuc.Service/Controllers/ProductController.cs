@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Cors;
+using Fnuc.Service.Filters;
 
 namespace Fnuc.Service.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [IdentityBasicAuthentication]
+    [Authorize]
     public class ProductController : ApiController
     {
         ProductLogic productLogic = new ProductLogic();
