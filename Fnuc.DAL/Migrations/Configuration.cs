@@ -1,11 +1,8 @@
 namespace Fnuc.DAL.Migrations
 {
     using Fnuc.DAL.Entities;
-    using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Fnuc.DAL.FnucDbContext>
     {
@@ -70,6 +67,14 @@ namespace Fnuc.DAL.Migrations
 
             //shoppingCartList.ForEach(s => context.ShoppingCarts.Add(s));
 
+            //var users = new List<User>()
+            //{
+            //    new User {Name = "jonh", Password = "password"},
+            //    new User {Name = "mat", Password = "james"}
+            //};
+
+            //users.ForEach(u => context.Users.Add(u));
+            //context.SaveChanges();
         }
     }
 }

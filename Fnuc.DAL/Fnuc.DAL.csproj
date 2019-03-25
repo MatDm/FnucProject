@@ -67,6 +67,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\ShoppingCart.cs" />
     <Compile Include="Entities\ShoppingProduct.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="FnucDbContext.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.cs" />
     <Compile Include="Migrations\201903111342561_hopeIsGone.Designer.cs">
@@ -99,6 +100,10 @@
     <Compile Include="Migrations\201903141030261_AzureIsAboutToExplode.cs" />
     <Compile Include="Migrations\201903141030261_AzureIsAboutToExplode.Designer.cs">
       <DependentUpon>201903141030261_AzureIsAboutToExplode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903251702224_User_Table.cs" />
+    <Compile Include="Migrations\201903251702224_User_Table.Designer.cs">
+      <DependentUpon>201903251702224_User_Table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903141030261_AzureIsAboutToExplode.resx">
       <DependentUpon>201903141030261_AzureIsAboutToExplode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903251702224_User_Table.resx">
+      <DependentUpon>201903251702224_User_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

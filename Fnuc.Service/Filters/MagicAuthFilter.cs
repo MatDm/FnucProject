@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Fnuc.DAL;
+using Fnuc.DAL.Entities;
+using Fnuc.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -214,22 +217,36 @@ namespace Fnuc.Service.Filters
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            if (userName != "user" || password != "passw")
+            //ajoutez la logique qui vérifie si le user existe dans la db et vérifié son mot de passe
+            FnucDbContext dbContext = new FnucDbContext();
+            var userRepository = new Repository<User>(dbContext);
+            var user = dbContext.Users.Where(u => u.Name == userName).FirstOrDefault();
+
+
+           
+
+
+            if (user == null || password != user.Password)
             {
                 // No user with userName/password exists.
                 return null;
             }
+            
+            if (user != null && user.Password == password)
+            {
+                // Create a ClaimsIdentity with all the claims for this user.
+                Claim nameClaim = new Claim(ClaimTypes.Name, userName);
+                List<Claim> claims = new List<Claim> { nameClaim };
 
-            // Create a ClaimsIdentity with all the claims for this user.
-            Claim nameClaim = new Claim(ClaimTypes.Name, userName);
-            List<Claim> claims = new List<Claim> { nameClaim };
+                // important to set the identity this way, otherwise IsAuthenticated will be false
+                // see: http://leastprivilege.com/2012/09/24/claimsidentity-isauthenticated-and-authenticationtype-in-net-4-5/
+                ClaimsIdentity identity = new ClaimsIdentity(claims, "Basic");
 
-            // important to set the identity this way, otherwise IsAuthenticated will be false
-            // see: http://leastprivilege.com/2012/09/24/claimsidentity-isauthenticated-and-authenticationtype-in-net-4-5/
-            ClaimsIdentity identity = new ClaimsIdentity(claims, "Basic");
-
-            var principal = new ClaimsPrincipal(identity);
-            return principal;
+                var principal = new ClaimsPrincipal(identity);
+                return principal;
+            }
+            return null;
+          
         }
 
     }
